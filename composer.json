@@ -1,0 +1,15 @@
+{
+    "name": "rayan/exercicefinal",
+    "description": "Rendu Exercices strings PHPPOO",
+    "type": "Project",
+    "authors": [
+        {
+            "name": "Rayan Mahanna",
+            "email": "rayan.mahanna@devinci.fr"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "6.5"
+    }
+}
