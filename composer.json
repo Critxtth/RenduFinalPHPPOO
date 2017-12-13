@@ -8,7 +8,9 @@
       "email": "rayan.mahanna@devinci.fr"
     }
   ],
-  "require": {},
+  "require": {
+    "symfony/var-dumper": "^4.0"
+  },
   "require-dev": {
     "phpunit/phpunit": "6.5"
   },
