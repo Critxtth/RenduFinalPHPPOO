@@ -1,18 +1,24 @@
 <?php
+
+namespace Strings;
+
 use PHPUnit\Framework\TestCase;
 
-class StackTest extends TestCase
+class StrTest extends TestCase
 {
-    public function testPushAndPop()
+    //Exercice 1
+    public function testExo1()
     {
-        $stack = [];
-        $this->assertEquals(0, count($stack));
+        $string = (string)Str::on('my_string')
+            ->replace('_', ' ')
+            ->ucwords()
+            ->replace(' ', '')
+            ->lcfirst();
 
-        array_push($stack, 'foo');
-        $this->assertEquals('foo', $stack[count($stack)-1]);
-        $this->assertEquals(1, count($stack));
-        $this->assertEquals('foo', array_pop($stack));
-        $this->assertEquals(0, count($stack));
+
+        $this->assertSame('myString', $string);
+
     }
 }
+
 ?>
