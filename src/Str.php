@@ -25,6 +25,8 @@ class Str
         $this->string = $string;
     }
 
+
+
     public function replace($search, $replace)
     {
         $this->string = str_replace($search, $replace, $this->string);
@@ -46,6 +48,23 @@ class Str
     {
         $this->string = lcfirst($this->string);
         return $this;
+
+    }
+//Exercice 1.5
+    public function camelCase()
+    {
+        $this->replace('_',' ')
+            ->ucWords()
+            ->replace(' ','')
+            ->lcFirst();
+        return $this;
+
+    }
+
+
+    public function toString()
+    {
+        return $this->__toString();
 
     }
 

@@ -15,8 +15,20 @@ class StrTest extends TestCase
             ->replace(' ', '')
             ->lcfirst();
 
+        dump($string);
+        $this->assertSame('myString',$string);
+
+    }
+
+
+    //Exercice 1.5
+    public function testExo1_5()
+    {
+        $string= Str::on('my_string')->camelCase()->toString(); // true
 
         $this->assertSame('myString', $string);
+
+        dump($string);
 
     }
 }
