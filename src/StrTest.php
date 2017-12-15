@@ -98,6 +98,28 @@ class StrTest extends TestCase
         $this->assertSame('my-string', $str);
     }
 
+    //Exercice 4_5
+
+    public function testExo4_5()
+    {
+        $str = Str::toKebabCase('my_string');
+        $this->assertSame('my-string', $str);
+
+        $str = Str::toKebabCase('myString');
+        $this->assertSame('my-string', $str);
+
+        $str = Str::toKebabCase('my-string');
+        $this->assertSame('my-string', $str, -1);
+
+        $str = Str::toKebabCase('my string');
+        $this->assertSame('my-string', $str);
+
+        $str = Str::toKebabCase('My String');
+        $this->assertSame('my-string', $str);
+    }
+
+
+
 }
 
 ?>

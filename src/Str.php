@@ -120,4 +120,10 @@ class Str
         }
     }
 
+    //Exercice 4_5
+    public function kebabCase()
+    {
+        return $this
+            ->slugCase();
+    }
 }
