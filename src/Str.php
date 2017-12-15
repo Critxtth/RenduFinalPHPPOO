@@ -126,4 +126,15 @@ class Str
         return $this
             ->slugCase();
     }
+
+    //Exercice 5
+
+    public function studlyCase()
+    {
+        return $this
+            ->camelCase()
+            ->ucwords();
+    }
+
+
 }
