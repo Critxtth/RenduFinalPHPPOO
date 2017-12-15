@@ -26,8 +26,7 @@ class Str
     }
 
 
-
-    public function replace($search, $replace)
+    public function replace($search, $replace): self
     {
         $this->string = str_replace($search, $replace, $this->string);
         return $this;
@@ -50,12 +49,15 @@ class Str
         return $this;
 
     }
+
 //Exercice 1.5
     public function camelCase()
     {
-        $this->replace('_',' ')
+        $this->replace('_', ' ')
+            ->replace('-',' ')
             ->ucWords()
-            ->replace(' ','')
+            ->replace(' ', '')
+
             ->lcFirst();
         return $this;
 
@@ -67,5 +69,16 @@ class Str
         return $this->__toString();
 
     }
+    //Exercice 2
+
+    public static function __callStatic($name, $arguments)
+    {
+        $method = (string) Str::on($name)->replace('to', '')->lcfirst();
+        return (string) Str::on($arguments[0])->{$method}();
+    }
+
+    //Exercice 3
+
+
 
 }
