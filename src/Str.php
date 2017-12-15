@@ -136,5 +136,12 @@ class Str
             ->ucwords();
     }
 
+    //Exercice 5.5
+
+    public function titleCase(){
+        return $this
+            ->studlyCase();
+    }
+
 
 }
