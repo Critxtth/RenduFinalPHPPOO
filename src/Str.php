@@ -50,6 +50,12 @@ class Str
 
     }
 
+    public function strToLower()
+    {
+        $this->string = strtolower($this->string);
+        return $this;
+    }
+
 //Exercice 1.5
     public function camelCase()
     {
@@ -57,7 +63,6 @@ class Str
             ->replace('-',' ')
             ->ucWords()
             ->replace(' ', '')
-
             ->lcFirst();
         return $this;
 
@@ -79,6 +84,21 @@ class Str
 
     //Exercice 3
 
-
+    public function snakeCase()
+    {
+        if (preg_match("/[-,_, ]+/", $this->string) === 1){
+            return $this
+                ->replace('-', ' ')
+                ->ucWords()
+                ->replace(' ', '_')
+                ->strtolower();
+        }
+        else{
+            $patern ="/(.)(?=[A-Z])/";
+            $this->string = preg_replace($patern, '$1_',$this->string);
+            return $this
+                ->strtolower();
+        }
+    }
 
 }

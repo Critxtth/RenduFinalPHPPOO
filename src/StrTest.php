@@ -15,7 +15,6 @@ class StrTest extends TestCase
             ->replace(' ', '')
             ->lcfirst();
 
-        dump($string);
         $this->assertSame('myString', $string);
 
     }
@@ -37,23 +36,20 @@ class StrTest extends TestCase
     public function testExo2()
     {
         $string = Str::toCamelCase('my_string');
+        dump($string);
         $this->assertSame('myString', $string);
-
 
 
         $string = Str::toCamelCase('myString');
         $this->assertSame('myString', $string);
 
 
-
         $string = Str::toCamelCase('my-string');
         $this->assertSame('myString', $string);
 
 
-
         $string = Str::toCamelCase('my string');
         $this->assertSame('myString', $string);
-
 
 
         $string = Str::toCamelCase('My String');
@@ -63,6 +59,25 @@ class StrTest extends TestCase
     }
 
     //Exercice 3
+
+    public function testExo3()
+    {
+        $str = Str::toSnakeCase('my_string');
+        $this->assertSame('my_string', $str);
+
+        $str = Str::toSnakeCase('myString');
+        $this->assertSame('my_string', $str);
+
+        $str = Str::toSnakeCase('my-string');
+        $this->assertSame('my_string', $str);
+
+        $str = Str::toSnakeCase('my string');
+        $this->assertSame('my_string', $str);
+
+        $str = Str::toSnakeCase('My String');
+        $this->assertSame('my_string', $str);
+    }
+
 
 
 }
