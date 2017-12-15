@@ -149,7 +149,7 @@ class StrTest extends TestCase
         $this->assertSame('MyString', $str);
 
         $str = Str::toTitleCase('my-string');
-        $this->assertSame('MyString', $str, -1);
+        $this->assertSame('MyString', $str);
 
         $str = Str::toTitleCase('my string');
         $this->assertSame('MyString', $str);
@@ -158,6 +158,30 @@ class StrTest extends TestCase
         $this->assertSame('MyString', $str);
     }
 
+    //Exercice 6
+
+    public function testExo6()
+    {
+        $str = Str::on('mY StrIng');
+
+        $this->assertSame('myString', $str->camelCase()->toString());
+
+        $this->assertSame('my_string', $str->snakeCase()->toString());
+
+        $this->assertSame('MyString', $str->studlyCase()->toString());
+
+        $this->assertSame('MyString', $str->titleCase()->toString());
+
+        $this->assertSame('my-string', $str->slugCase()->toString());
+
+        $this->assertSame('my-string', $str->kebabCase()->toString());
+
+        $this->assertSame('mY StrIng',  $str->toString());
+
+        $this->assertSame('mY StrIng', (string) $str);
+    }
+
 }
+
 
 ?>

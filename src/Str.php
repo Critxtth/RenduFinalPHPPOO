@@ -12,7 +12,7 @@ namespace Strings;
 class Str
 {
 
-//Exercice 1
+    //Exercice 1
     private $string;
 
     public static function on($string)
@@ -26,10 +26,10 @@ class Str
     }
 
 
-    public function replace($search, $replace): self
+    public function replace($search, $replace):self
     {
-        $this->string = str_replace($search, $replace, $this->string);
-        return $this;
+        $str = str_replace($search, $replace, $this->string);
+        return new self($str);
     }
 
     public function __toString()
@@ -39,41 +39,47 @@ class Str
 
     public function ucWords()
     {
-        $this->string = ucwords($this->string);
-        return $this;
+        $str = ucwords($this->string);
+        return new self($str);
     }
 
     public function lcFirst()
     {
-        $this->string = lcfirst($this->string);
-        return $this;
+        $str = lcfirst($this->string);
+        return new self($str);
 
     }
 
     public function strToLower()
     {
-        $this->string = strtolower($this->string);
-        return $this;
+        $str = strtolower($this->string);
+        return new self($str);
     }
 
-//Exercice 1.5
+    //Exercice 1.5
+
     public function camelCase()
     {
-        $this->replace('_', ' ')
-            ->replace('-',' ')
-            ->ucWords()
-            ->replace(' ', '')
-            ->lcFirst();
-        return $this;
-
+        if (preg_match("/[-,_, ]+/", $this->string) === 1){
+            return $this
+                ->strtolower()
+                ->replace('-', ' ')
+                ->replace('_', ' ')
+                ->ucwords()
+                ->replace(' ', '')
+                ->lcfirst();
+        }
+        else{
+            return $this;
+        }
     }
-
 
     public function toString()
     {
         return $this->__toString();
 
     }
+
     //Exercice 2
 
     public static function __callStatic($name, $arguments)
@@ -121,6 +127,7 @@ class Str
     }
 
     //Exercice 4_5
+
     public function kebabCase()
     {
         return $this
@@ -142,6 +149,14 @@ class Str
         return $this
             ->studlyCase();
     }
+
+    //Exercice 6 : modifs des fonctions au dessus.
+
+    //Exercice 7
+
+
+
+
 
 
 }
